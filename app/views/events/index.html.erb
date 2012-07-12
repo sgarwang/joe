@@ -1,0 +1,14 @@
+
+<%# RESTful practice step 1: http://ihower.tw/rails3/restful.html%>
+<ul>
+  <% @events.each do |event| %>
+    <li>
+      <%= link_to event.name, event_path(event) %>
+      <%= link_to 'edit', edit_event_path(event) %>
+      <%= button_to 'delete', event_path(event), :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+               
+<%= link_to 'new event', new_event_path %>
+

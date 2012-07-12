@@ -3,10 +3,12 @@ class PeopleController < ApplicationController
   # GET /people.json
   def index
     @people = Person.all
+    #@people = Person.page(params[:page]).per(5)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @people }
+      format.xml  { render :xml  => @people.to_xml }  # xml builder
     end
   end
 

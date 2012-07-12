@@ -23,6 +23,13 @@ end
 
 gem 'jquery-rails'
 
+# Or this format
+#group :development do  
+#  gem 'rails-footnotes', '>= 3.7.5.rc4'  
+#end
+
+gem 'rails-footnotes', '>= 3.7.5.rc4', :group => :development
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

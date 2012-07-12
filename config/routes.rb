@@ -1,4 +1,8 @@
 Joe::Application.routes.draw do
+  
+  # RESTful model for auto named routes: http://ihower.tw/rails3/restful.html
+  resources :events
+  # Manully added controllers:
   resources :people
 
   # The priority is based upon order of creation:

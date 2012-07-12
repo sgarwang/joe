@@ -58,5 +58,8 @@ module Joe
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    # Use jQuery: http://ihower.tw/rails3/restful.html
+    config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
   end
 end
