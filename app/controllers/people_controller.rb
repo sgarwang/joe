@@ -3,6 +3,7 @@ class PeopleController < ApplicationController
   # GET /people.json
   def index
     @people = Person.all
+    debugger
     #@people = Person.page(params[:page]).per(5)
 
     respond_to do |format|
@@ -16,7 +17,8 @@ class PeopleController < ApplicationController
   # GET /people/1.json
   def show
     @person = Person.find(params[:id])
-
+    debugger
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @person }

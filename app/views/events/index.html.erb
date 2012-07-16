@@ -1,14 +1,35 @@
 
 <%# RESTful practice step 1: http://ihower.tw/rails3/restful.html%>
-<ul>
-  <% @events.each do |event| %>
-    <li>
-      <%= link_to event.name, event_path(event) %>
-      <%= link_to 'edit', edit_event_path(event) %>
-      <%= button_to 'delete', event_path(event), :method => :delete, :data => { :confirm => 'Are you sure?' } %>
-    </li>
-  <% end %>
-</ul>
+
+<p> pages : <%= paginate @events %></p>
+<p> action: <%= link_to 'Create',     new_event_path %>
+			<%#= link_to 'RenderTXT', :controller => 'events', :action => 'render_text',%>
+			<%= link_to 'RenderXML', :controller => 'events', :action => 'render_xml',  :id => 1%>  
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Capacity</th>
+    <th>IsPublic</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td><%= event.name %></td>
+    <td><%= event.description %></td>
+    <td><%= event.capacity %></td>
+    <td><%= event.is_public?  %></td>
+    <td><%= link_to 'Show',   :controller => 'events', :action => 'show',    :id => event %></td>
+    <td><%= link_to 'Edit',   :controller => 'events', :action => 'edit',    :id => event %></td>
+    <td><%= link_to 'Delete', :controller => 'events', :action => 'destroy', :id => event %></td>
+    <td><%= button_to 'Delete', event_path(event), :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
                
-<%= link_to 'new event', new_event_path %>
 

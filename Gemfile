@@ -23,11 +23,17 @@ end
 
 gem 'jquery-rails'
 
+# To limit DB records.all into pages lower server loading
+# https://github.com/amatsuda/kaminari/wiki/Kaminari-recipes
+gem "kaminari"
+
 # Or this format
 #group :development do  
 #  gem 'rails-footnotes', '>= 3.7.5.rc4'  
 #end
 
+
+gem 'ruby-debug', :group => :development
 gem 'rails-footnotes', '>= 3.7.5.rc4', :group => :development
 
 # To use ActiveModel has_secure_password

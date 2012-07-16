@@ -17,6 +17,9 @@ module Joe
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
+    
+    # Add sub-dir under models (Refer: http://ihower.tw/rails3/environments-and-bundler.html)
+    # config.autoload_paths += %W( #{config.root}/app/models/foobar
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
