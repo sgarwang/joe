@@ -1,7 +1,9 @@
 Joe::Application.routes.draw do
   
   # RESTful model for auto named routes: http://ihower.tw/rails3/restful.html
-  resources :events
+  resources :events do
+    resources :attendees, :controller => 'event_attendees'
+  end
   
   # Added by "scaffold"
   resources :people
