@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%=@page_title || "Special Layout from ihower" %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<p>This is special layout</p>
+<p style="color: green"><%= flash[:notice] %></p>
+<p style="color: red"  ><%= flash[:alert]  %></p>
+
+<%# To load template content with both yield and sidebar %>
+<div id="sidebar">
+    <%= yield :sidebar %>
+</div>
+<div id="content">
+    <%= yield %>
+</div>
+
+</body>
+</html>
