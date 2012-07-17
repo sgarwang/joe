@@ -4,3 +4,10 @@
 Desc: <%= simple_format(@event.description) %>
  
 <p><%= link_to 'Back to index', :controller => 'events', :action => 'index' %></p>
+
+<%= content_for :sidebar do %>
+   <ul>
+       <li>foo</li>
+       <li>bar</li>
+   </ul>
+<% end %>
