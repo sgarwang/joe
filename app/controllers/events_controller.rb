@@ -15,6 +15,13 @@ require 'csv'
 
 class EventsController < ApplicationController
 
+  # Specify all Event controllers use app/views/layouts/special.html.erb
+  #     Here we use ':only => :index                    for index action only.
+  #     Or   to use ':execpt => [:show, :edit, :new]    to exclude
+  # You can use a function name to determine layout at runtime
+  #     layout :determine_layout    
+  layout "special", :only => :show
+  
   # TBF: Routing Error
   #around_filter BenchmarkFilter :only => [ :index ] 
   
@@ -41,6 +48,9 @@ class EventsController < ApplicationController
   end
 
   def new
+    # Action level layout:
+    #   render :layout => "foobar"
+    #   render :layout => false
     @event = Event.new
   end
 
@@ -57,7 +67,8 @@ class EventsController < ApplicationController
   end
        
   def show
-    #@event = Event.find(params[:id])     # Replaced by find_event
+    #debugger
+    @event = Event.find(params[:id])     # Replaced by find_event
     @page_title = @event.name
   end
   
