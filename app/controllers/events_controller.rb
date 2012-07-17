@@ -70,6 +70,12 @@ class EventsController < ApplicationController
     #debugger
     @event = Event.find(params[:id])     # Replaced by find_event
     @page_title = @event.name
+    
+    respond_to do |format|                # Ajax: Type2
+      format.html
+      format.js
+    end
+      
   end
   
   def edit
