@@ -15,6 +15,7 @@ Joe::Application.routes.draw do
 
   get "welcome/say_hello"	=> 'welcome#say'
   get "welcome"			=> 'welcome#index'
+  get "events/render_csv" => 'event#render_csv'
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

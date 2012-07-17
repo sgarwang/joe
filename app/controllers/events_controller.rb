@@ -10,6 +10,9 @@
 # => to respond_to
 # => sessions, cookies
 # 
+
+require 'csv'
+
 class EventsController < ApplicationController
 
   # TBF: Routing Error
@@ -18,7 +21,8 @@ class EventsController < ApplicationController
   # To abstract the duplicated part, specifiy only applied to certain actions
   # Either (1) Code block (2) Symbol method or (3) Object
   # param: only or except
-  before_filter :find_event, :only => [ :show, :edit, :update, :destroy, :render_xml]
+  #
+  # before_filter :find_event, :only => [ :show, :edit, :update, :destroy, :render_xml]
   
   # after_filter:
   #
@@ -51,9 +55,6 @@ class EventsController < ApplicationController
       render :action => :new              # Ask user to do again by past template
     end  
   end
-
-
- 
        
   def show
     #@event = Event.find(params[:id])     # Replaced by find_event
@@ -90,11 +91,33 @@ class EventsController < ApplicationController
   def render_xml
     render :xml => @event.to_xml
   end 
-  
+
+  # Fixme: Template is missing
+  #
+  def render_csv
+      # Debug
+      # debugger
+      @event = Event.first
+      respond_to do |format|
+        format.html
+        format.json{ render :json => @event.to_json }
+        format.xml { render :xml => @event.to_xml }
+        format.csv do
+          csv_string = CSV.generate do |csv|
+            csv << ["Name", "Description"]
+            @event.each do |myevent|
+                csv << [myevent.name, myevent.description]
+            end
+          end
+          render :text => csv_string
+        end
+      end    
+  end
+
  
   protected                            # Here is the protected part, seems to be the bottom?
-    def find_event
-      @event = Event.find(params[:id])
-    end
+  def find_event
+    @event = Event.find(params[:id])
+  end
     
 end

@@ -32,7 +32,7 @@ gem "kaminari"
 #  gem 'rails-footnotes', '>= 3.7.5.rc4'  
 #end
 
-
+gem "fastercsv"
 gem 'ruby-debug', :group => :development
 gem 'rails-footnotes', '>= 3.7.5.rc4', :group => :development
 
