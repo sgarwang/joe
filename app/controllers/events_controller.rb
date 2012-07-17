@@ -79,11 +79,11 @@ class EventsController < ApplicationController
   end
   
   def edit
-    #@event = Event.find(params[:id])     # Replaced by find_event
+    @event = Event.find(params[:id])     # Replaced by find_event
   end
    
   def update
-    #@event = Event.find(params[:id])     # Replaced by find_event
+    @event = Event.find(params[:id])     # Replaced by find_event
     
     if @event.update_attributes(params[:event])
       flash[:notice] = "event was successfully updated"

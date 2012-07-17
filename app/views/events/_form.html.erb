@@ -3,7 +3,10 @@
   	<% if @event.errors[:name].presence %>
         <%= @event.errors[:name].join(", ") %>
     <% end %>
-
             
     <%= f.label :description, "Desc:" %>
     <%= f.text_area :description %>
+
+	<%# Add 'category_option' helper in Events to replace the logic: %>
+	<%#= f.select :category_id, Category.all.map{ |c| [c.name, c.id] } %>
+	<%= f.select :category_id, category_options %>

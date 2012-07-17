@@ -1,8 +1,15 @@
 
-<%# simple_format: Replace \n with br / %>
+<%# debugger %>
 <p>Name: <%= @event.name %></p>
+
+<%# Note its possible that category is nil cause error %>
+<%# Or use below in Event model to get '@event.category_name' instead: %>
+<%# delegate :name, :to => :category, :prefix => true, :allow_nil => true	%>
+<p>Category: <%= @event.category.try(:name) %><p>
+	
+<%# simple_format: Replace \n with br / %>
 Desc: <%= simple_format(@event.description) %>
- 
+	 
 <p><%= link_to 'Back to index', :controller => 'events', :action => 'index' %></p>
 
 <%= content_for :sidebar do %>
