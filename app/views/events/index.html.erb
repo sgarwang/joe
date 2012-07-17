@@ -30,6 +30,7 @@
     <td><%= link_to 'Show',   :controller => 'events', :action => 'show',    :id => event %></td>
     <td><%= link_to 'Edit',   :controller => 'events', :action => 'edit',    :id => event %></td>
     <td><%= link_to 'Delete', :controller => 'events', :action => 'destroy', :id => event %></td>
+	<td><%= link_to 'Attendees', event_attendees_path(event) %></td>
     <td><%= button_to 'Delete', event_path(event), :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
 	<td><%= link_to 'ajax show 2', event_path(event), :remote => true, "data-type" => "script" %></td>
 	<td><%= link_to 'ajax show 3', event_path(event), :remote => true, "data-type" => :json, :id => "update_foobar" %></td>
